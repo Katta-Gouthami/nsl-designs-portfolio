@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSL Designs</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+<nav>
+    <div class="logo">NSL Designs</div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <ul id="nav-links">
+        <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+        <li><a href="#features" onclick="toggleMenu()">Features</a></li>
+        <li><a href="#work" onclick="toggleMenu()">Work</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    </ul>
+</nav>
+<!-- HERO -->
+<header id="home">
+    <img src="logo.png" alt="NSL Designs Logo" class="logo-img">
+    <h1>I Build Modern Websites for Your Business</h1>
+    <p>Modern, responsive and user-friendly websites for your business</p>
+    <button onclick="document.getElementById('contact').scrollIntoView()">Get Started</button>
+</header>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+    <h2>What You Get</h2>
+
+    <div class="box">⚡ Fast Performance</div>
+    <div class="box">📱 Fully Responsive</div>
+    <div class="box">🎨 Clean UI Design</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+    <h2>Why Choose NSL Designs</h2>
+    <p>
+        We create modern websites with clean design, smooth performance,
+        and a focus on user experience. Perfect for businesses and startups.
+    </p>
+</section>
+<section class="work" id="work">
+    <h2>My Work</h2>
+
+    <div class="work-container">
+
+        <div class="work-card">
+            <img src="nsl1.png" alt="Landing Page">
+            <p>Modern Landing Page Design</p>
+        </div>
+
+        <div class="work-card">
+            <img src="nsl2.png" alt="Mobile View">
+            <p>Responsive Mobile Design</p>
+        </div>
+
+        <div class="work-card">
+            <img src="nsl3.png" alt="Contact Section">
+            <p>Contact Form UI</p>
+        </div>
+
+    </div>
+</section>
+<!-- CTA -->
+<section class="contact" id="contact">
+    <h2>Contact Me</h2>
+
+    <form action="https://formspree.io/f/mbdpzbbw" method="POST" class="contact-form">
+    <input type="hidden" name="_subject" value="New message from NSL Designs">
+    <input type="hidden" name="_next" value="https://formspree.io/thanks">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+
+    <button type="submit">Send Message</button>
+</form>
+</section>
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 NSL Designs</p>
+</footer>
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("nav-links");
+    menu.classList.toggle("show");
+}
+</script>
+</body>
+</html>
