@@ -1,100 +1,550 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NSL Designs</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Katta Gouthami | UI/UX Focused Web Developer">
+<meta property="og:description" content="Designing clean interfaces and building them for the web.">
+<meta property="og:image" content="https://your-site.com/profile.jpeg">
+<title>Katta Gouthami | UI/UX Focused Web Developer</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="landing.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0f1d;
+    color: #e8edf5;
+    line-height: 1.5;
+    padding-top: 72px;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+h1 { font-size: 3.1rem; }
+h2 { font-size: 2rem; color: #60e3f5; margin-bottom: 1.5rem; }
+h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(10, 15, 29, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(96, 227, 245, 0.15);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.35rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #60e3f5, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #60e3f5;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(125deg, #0a0f1d 0%, #111827 100%);
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.hero-text h1 {
+    margin-bottom: 1rem;
+    margin-top: 0.4rem;
+}
+
+.highlight {
+    color: #60e3f5;
+    border-bottom: 3px solid #60e3f5;
+    display: inline-block;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(96, 227, 245, 0.12);
+    border: 1px solid rgba(96, 227, 245, 0.3);
+    padding: 0.3rem 1rem;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    color: #9ca3af;
+    margin: 1rem 0 1.5rem 0;
+    max-width: 520px;
+}
+
+.hero-image img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(96, 227, 245, 0.4);
+    box-shadow: 0 20px 35px -10px rgba(0,0,0,0.4);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.hero-image img:hover {
+    transform: scale(1.02);
+    border-color: #60e3f5;
+}
+
+/* Buttons */
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 0.75rem 1.8rem;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #60e3f5, #2b6ef0);
+    border: none;
+    color: #0a0f1d;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(96, 227, 245, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1.5px solid #60e3f5;
+    color: #60e3f5;
+}
+
+.btn-outline:hover {
+    background: rgba(96, 227, 245, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Sections */
+section {
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* About */
+.about-text {
+    font-size: 1rem;
+    color: #cbd5e1;
+    max-width: 750px;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.edu-note {
+    background: rgba(96, 227, 245, 0.06);
+    border-left: 3px solid #60e3f5;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-top: 1.5rem;
+}
+
+/* Skills */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skill-item {
+    background: #111827;
+    padding: 0.5rem 1.25rem;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid #1f2a3e;
+    transition: all 0.2s;
+}
+
+.skill-item:hover {
+    border-color: #60e3f5;
+    transform: translateY(-2px);
+}
+
+/* Projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 1.8rem;
+}
+
+.project-card {
+    background: #111827;
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1px solid #1f2a3e;
+    transition: all 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: #60e3f5;
+    box-shadow: 0 15px 30px -12px rgba(0,0,0,0.4);
+}
+
+.project-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.project-card h3 {
+    color: #60e3f5;
+    margin-bottom: 0.6rem;
+}
+
+.project-card p {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+}
+
+.project-links {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.project-links a {
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    transition: all 0.2s;
+}
+
+.link-live {
+    background: #60e3f5;
+    color: #0a0f1d;
+}
+
+.link-code {
+    background: transparent;
+    border: 1px solid #3b4a66;
+    color: #cbd5e1;
+}
+
+.link-code:hover {
+    border-color: #60e3f5;
+    color: #60e3f5;
+}
+
+/* Contact */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+}
+
+.contact-item i {
+    width: 28px;
+    color: #60e3f5;
+    font-size: 1.2rem;
+}
+
+.contact-item a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contact-item a:hover {
+    color: #60e3f5;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid #1f2a3e;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body { padding-top: 65px; }
+    h1 { font-size: 2.1rem; }
+    h2 { font-size: 1.7rem; }
+    .hero-container { flex-direction: column-reverse; text-align: center; }
+    .hero-desc { margin-left: auto; margin-right: auto; }
+    .btn-group { justify-content: center; }
+    .nav-links { gap: 1.2rem; }
+    nav { padding: 0.8rem 5%; }
+    .contact-item { justify-content: center; }
+}
+</style>
 </head>
+
 <body>
+
 <nav>
-    <div class="logo">NSL Designs</div>
-
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-    <ul id="nav-links">
-        <li><a href="#home" onclick="toggleMenu()">Home</a></li>
-        <li><a href="#features" onclick="toggleMenu()">Features</a></li>
-        <li><a href="#work" onclick="toggleMenu()">Work</a></li>
-        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    <div class="logo">Katta Gouthami</div>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
-<!-- HERO -->
-<header id="home">
-    <img src="logo.png" alt="NSL Designs Logo" class="logo-img">
-    <h1>I Build Modern Websites for Your Business</h1>
-    <p>Modern, responsive and user-friendly websites for your business</p>
-    <button onclick="document.getElementById('contact').scrollIntoView()">Get Started</button>
+
+<!-- Hero -->
+<header id="home" class="hero">
+    <div class="hero-container">
+        <div class="hero-text">
+            <div class="badge">B.Tech CSE (AI) Student • Open for Internships 2026</div>
+            <h1>
+                 <span class="highlight">UI/UX</span><br>
+                Focused Web Developer
+            </h1>
+            <p class="hero-desc">
+                I design clean, user-friendly interfaces and bring them to life on the web using HTML, CSS, JavaScript, and Bootstrap — with a growing focus on wireframing and UI/UX principles.
+            </p>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+                    <i class="fas fa-arrow-down"></i> View Work
+                </button>
+                <a href="Katta_Gouthami_Resume.pdf" download class="btn btn-outline">
+                    <i class="fas fa-download"></i> Resume
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="profile.jpeg" alt="Gouthami" onerror="this.src='https://placehold.co/400x400/1e293b/60e3f5?text=Gouthami'">
+        </div>
+    </div>
 </header>
 
-<!-- FEATURES -->
-<section class="features" id="features">
-    <h2>What You Get</h2>
-
-    <div class="box">⚡ Fast Performance</div>
-    <div class="box">📱 Fully Responsive</div>
-    <div class="box">🎨 Clean UI Design</div>
-</section>
-
-<!-- ABOUT -->
-<section class="about">
-    <h2>Why Choose NSL Designs</h2>
-    <p>
-        We create modern websites with clean design, smooth performance,
-        and a focus on user experience. Perfect for businesses and startups.
-    </p>
-</section>
-<section class="work" id="work">
-    <h2>My Work</h2>
-
-    <div class="work-container">
-
-        <div class="work-card">
-            <img src="nsl1.png" alt="Landing Page">
-            <p>Modern Landing Page Design</p>
-        </div>
-
-        <div class="work-card">
-            <img src="nsl2.png" alt="Mobile View">
-            <p>Responsive Mobile Design</p>
-        </div>
-
-        <div class="work-card">
-            <img src="nsl3.png" alt="Contact Section">
-            <p>Contact Form UI</p>
-        </div>
-
+<!-- About -->
+<section id="about">
+    <h2>About</h2>
+    <div class="about-text">
+        I'm currently pursuing my B.Tech in Computer Science with specialization in Artificial Intelligence at DR M.G.R University, Chennai.
+    </div>
+    <div class="about-text">
+        I care about how things look and feel to use. My focus is on designing clean, intuitive interfaces — using Figma for wireframing and prototyping — and then building them out on the web with HTML, CSS, and JavaScript. I'm actively growing my frontend skills while sharpening my eye for UI/UX.
+    </div>
+    <div class="edu-note">
+        🎓 <strong>B.Tech CSE (AI)</strong> — DR M.G.R Educational and Research Institute | 2023 – 2027 | CGPA: 9.19/10
     </div>
 </section>
-<!-- CTA -->
-<section class="contact" id="contact">
-    <h2>Contact Me</h2>
 
-    <form action="https://formspree.io/f/mbdpzbbw" method="POST" class="contact-form">
-    <input type="hidden" name="_subject" value="New message from NSL Designs">
-    <input type="hidden" name="_next" value="https://formspree.io/thanks">
-
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-
-    <button type="submit">Send Message</button>
-</form>
+<!-- Skills -->
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+        <span class="skill-item">Figma (Wireframing & Prototyping)</span>
+        <span class="skill-item">UI/UX Principles</span>
+        <span class="skill-item">Responsive Design</span>
+        <span class="skill-item">HTML5 & CSS3</span>
+        <span class="skill-item">JavaScript (Basics)</span>
+        <span class="skill-item">Bootstrap</span>
+        <span class="skill-item">Git & GitHub</span>
+        <span class="skill-item">Canva</span>
+    </div>
 </section>
-<!-- FOOTER -->
+
+<!-- Certifications -->
+<section id="certifications">
+    <h2>Certifications</h2>
+    <div class="skills-grid">
+        <span class="skill-item">🏆 Top Rank — University Examination, AY 2025–26</span>
+        <span class="skill-item">🏅 THEOREM X — Project Expo 2026 Participant</span>
+    </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-icon">🤖</div>
+            <h3>AI Resume Screening System</h3>
+            <p>Designed and built a clean, easy-to-scan candidate dashboard — focused on clear visual hierarchy for ranking results, integrated with an NLP backend via APIs. Team of 3, in progress.</p>
+            <div class="project-links">
+                <a href="https://github.com/katta-gouthami/ai-resume-screener" target="_blank" class="link-code">GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-icon">🎬</div>
+            <h3>Netflix Homepage Clone</h3>
+            <p>Recreated a familiar UI to practice layout, spacing, and dark/light mode design patterns — built responsively with Bootstrap 5.</p>
+            <div class="project-links">
+                <a href="https://kattagouthami.github.io/netflix-homepage-clone/" target="_blank" class="link-live">Live Demo →</a>
+                <a href="https://github.com/Katta-Gouthami/netflix-homepage-clone" target="_blank" class="link-code">GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-icon">🌐</div>
+            <h3>Landing Page</h3>
+            <p>Fully responsive brand landing page with a focus on clean visual hierarchy and mobile-first layout, built using semantic HTML5 and modern CSS.</p>
+            <div class="project-links">
+                <a href="https://katta-gouthami.github.io/nsl-designs-portfolio/" target="_blank" class="link-live">Live Demo →</a>
+                <a href="https://github.com/Katta-Gouthami/nsl-designs-portfolio" target="_blank" class="link-code">GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-icon">✅</div>
+            <h3>TaskFlow (To-Do App)</h3>
+            <p>Interactive task manager with a simple, intuitive interface — built with vanilla JavaScript, local storage persistence, and dynamic DOM updates.</p>
+            <div class="project-links">
+                <a href="https://katta-gouthami.github.io/Todolist/" target="_blank" class="link-live">Live Demo →</a>
+                <a href="https://github.com/Katta-Gouthami/Todolist" target="_blank" class="link-code">GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-icon">🎨</div>
+            <h3>UI Design Portfolio</h3>
+            <p>Collection of modern UI mockups and brand assets created with Canva. Focus on clean typography, color harmony, and user-centered layouts.</p>
+            <div class="project-links">
+                <a href="https://instagram.com/nsl.designs" target="_blank" class="link-live">View on IG →</a>
+                <a href="#" onclick="alert('Design assets available on request.')" class="link-code">Portfolio</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-links">
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:kgouthami546@gmail.com">kgouthami546@gmail.com</a>
+        </div>
+        <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <a href="https://linkedin.com/in/kattagouthami" target="_blank">linkedin.com/in/kattagouthami</a>
+        </div>
+        <div class="contact-item">
+            <i class="fab fa-github"></i>
+            <a href="https://github.com/Katta-Gouthami" target="_blank">github.com/Katta-Gouthami</a>
+        </div>
+        <div class="contact-item">
+            <i class="fab fa-instagram"></i>
+            <a href="https://instagram.com/nsl.designs" target="_blank">@nsl.designs</a>
+        </div>
+    </div>
+</section>
+
 <footer>
-    <p>© 2026 NSL Designs</p>
+    <p>© 2026 Katta Gouthami — Built with HTML/CSS/JS</p>
 </footer>
+
 <script>
-function toggleMenu() {
-    const menu = document.getElementById("nav-links");
-    menu.classList.toggle("show");
-}
+    // Smooth active nav highlight
+    const sections = document.querySelectorAll('section, header');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.style.color = '';
+            if (link.getAttribute('href') === `#${current}`) {
+                link.style.color = '#60e3f5';
+            }
+        });
+    });
 </script>
+
 </body>
 </html>
